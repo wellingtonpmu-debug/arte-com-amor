@@ -19,7 +19,7 @@ import {
   orderBy,
   runTransaction
 } from 'firebase/firestore';
-import firebaseConfig from '../firebase-applet-config.json';
+import firebaseConfig from '../../firebase-applet-config.json';
 import { Product, Order, AppConfig } from '../types';
 import { INITIAL_PRODUCTS, INITIAL_CONFIG } from '../data';
 
