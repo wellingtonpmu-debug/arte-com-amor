@@ -1,0 +1,81 @@
+{
+  "entities": {
+    "product": {
+      "title": "Product",
+      "description": "Available customized products for bead jewelry.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Product ID (e.g. pulseira, colar, chaveiro, tornozeleira)" },
+        "name": { "type": "string", "description": "Display name of the product" },
+        "price": { "type": "number", "description": "Price in Reais (R$)" },
+        "description": { "type": "string", "description": "Brief product description" },
+        "image": { "type": "string", "description": "URL of the main image of the product" }
+      },
+      "required": ["id", "name", "price", "description", "image"]
+    },
+    "order": {
+      "title": "Order",
+      "description": "Custom bead jewelry orders placed by clients.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique Order ID" },
+        "orderNumber": { "type": "number", "description": "Simple sequential order number" },
+        "clientName": { "type": "string", "description": "Name of the client placing the order" },
+        "clientWhatsapp": { "type": "string", "description": "WhatsApp number of the client" },
+        "clientAddress": { "type": "string", "description": "Optional delivery address" },
+        "paymentMethod": { "type": "string", "description": "Method of payment picked (e.g. Pix, Dinheiro, Cartão)" },
+        "productType": { "type": "string", "description": "Id of the product customized" },
+        "beadsColor1": { "type": "string", "description": "Primary bead color chosen" },
+        "beadsColor2": { "type": "string", "description": "Secondary bead color chosen" },
+        "beadShape": { "type": "string", "description": "Shape of the beads chosen" },
+        "letters": { "type": "string", "description": "Optional custom word / name" },
+        "size": { "type": "string", "description": "Size chosen (Infantil, Adolescente, Adulto)" },
+        "pendant": { "type": "string", "description": "Pendant selected, if any" },
+        "price": { "type": "number", "description": "Total price paid for the customized piece" },
+        "status": { "type": "string", "enum": ["Recebido", "Em andamento", "Concluído"], "description": "Order processing status" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Creation timestamp" }
+      },
+      "required": [
+        "id",
+        "orderNumber",
+        "clientName",
+        "clientWhatsapp",
+        "paymentMethod",
+        "productType",
+        "beadsColor1",
+        "beadShape",
+        "size",
+        "price",
+        "status",
+        "createdAt"
+      ]
+    },
+    "config": {
+      "title": "Configuration",
+      "description": "Dynamic layout configurations and settings.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "ID of the single configuration row (always 'main')" },
+        "adminWhatsapp": { "type": "string", "description": "Family's WhatsApp number to receive orders" },
+        "aboutText": { "type": "string", "description": "The description about the child and her story" },
+        "aboutPhotoUrl": { "type": "string", "description": "The URL of the photo of the child" },
+        "adminPassword": { "type": "string", "description": "A passcode to login to the administrative area" }
+      },
+      "required": ["id", "adminWhatsapp", "aboutText", "aboutPhotoUrl", "adminPassword"]
+    }
+  },
+  "firestore": {
+    "products": {
+      "schema": "product",
+      "description": "Collection of default products (Pulseira, Colar, etc) with customizable properties."
+    },
+    "orders": {
+      "schema": "order",
+      "description": "Collection of custom bead jewelry orders created by customers."
+    },
+    "configs": {
+      "schema": "config",
+      "description": "Global application configuration document (document id 'main')."
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Arte com Amor",
+  "description": "Aplicativo para personalizar e encomendar pulseiras, colares, chaveiros e tornozeleiras feitas com amor por uma criança com autismo.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
